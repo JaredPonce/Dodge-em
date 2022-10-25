@@ -1,11 +1,12 @@
 let player, car;
-let callSpawner, refreshCaller;
+let callSpawner;
 let difficulty = 1000;
 let x, y;
 
 let ALIVE = 1;
 let DEAD = 0;
 let playerState = ALIVE;
+
 window.addEventListener("devicemotion", function (e) {
     x = parseInt(e.accelerationIncludingGravity.x) * -1;
     y = parseInt(e.accelerationIncludingGravity.y);
@@ -20,19 +21,17 @@ function setup() {
     car = new Group();
 
     callSpawner = setInterval(spawnCar, difficulty, 1, 3);
-
     refreshCaller = setInterval(increaseDifficulty, 3000);
 }
 
 function draw() {
     if (playerState == ALIVE) {
-        console.log(difficulty);
         background(225);
 
         player.vel.x = x;
         player.vel.y = y;
 
-        if (player.overlaps(car)) gameOver();
+        if (player.collides(car)) gameOverScreen();
     } else if (playerState == DEAD) {
     }
 }
@@ -51,11 +50,15 @@ function increaseDifficulty() {
     callSpawner = setInterval(spawnCar, difficulty, 1, 3);
 }
 
-function gameOver() {
+function gameOverScreen() {
     playerState = DEAD;
     background(0);
+    car.remove();
+
     clearInterval(refreshCaller);
     clearInterval(callSpawner);
     textSize(50);
+    fill(255);
+    textAlign(CENTER);
     text("Game Over", width / 2, height / 2);
 }
