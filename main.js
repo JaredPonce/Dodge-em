@@ -1,9 +1,10 @@
 let player, car;
 let callSpawner, refreshCaller;
 let difficulty = 1000,
-    carSpeed = 4,
-    maxCars = 1;
-let x, y;
+    carSpeed = 4;
+let x, upButton, downButton;
+
+// Pagina para generar sonidos bfxr.met
 
 let ALIVE = 1;
 let DEAD = 0;
@@ -11,28 +12,38 @@ let playerState = ALIVE;
 
 window.addEventListener("devicemotion", function (e) {
     x = parseInt(e.accelerationIncludingGravity.x) * -2.5;
-    y = parseInt(e.accelerationIncludingGravity.x) * 1;
 });
 
 function setup() {
-    createCanvas(400, 800);
+    createCanvas(400, 700);
 
-    player = new Sprite(300, 600, 40, 70, "dynamic");
+    player = new Sprite(width / 2, height / 1.5, 40, 70, "dynamic");
     player.color = "blue";
 
     car = new Group();
+    car.color = "red";
+
+    upButton = createButton("⬆️");
+    upButton.position(width / 4, height - height / 4);
+    upButton.mousePressed(function () {
+        player.position.y -= 20;
+    });
+
+    downButton = createButton("⬇️");
+    downButton.position(width - width / 4, height - height / 4);
+    downButton.mousePressed(function () {
+        player.position.y += 20;
+    });
 
     callSpawner = setInterval(spawnCar, difficulty, carSpeed);
-    refreshCaller = setInterval(increaseDifficulty, 1000);
+    refreshCaller = setInterval(increaseDifficulty, 1500);
 }
 
 function draw() {
     if (playerState == ALIVE) {
         background(225);
 
-        console.log(carSpeed);
         player.vel.x = x;
-        player.vel.y = y;
 
         if (player.collides(car)) gameOverScreen();
 
@@ -42,10 +53,10 @@ function draw() {
             ? (player.position.x = 0)
             : (player.position.x = player.position.x);
 
-        player.position.y <= 500
-            ? (player.position.y = 500)
-            : player.position.y < 800
-            ? (player.position.y = 800)
+        player.position.y > height
+            ? (player.position.y = height)
+            : player.position.y < height / 1.5
+            ? (player.position.y = height / 1.5)
             : (player.position.y = player.position.y);
     }
 
@@ -54,14 +65,14 @@ function draw() {
 }
 
 function spawnCar(vel) {
-    new car.Sprite(random(25, 375), -50, 40, 70).vel = vel;
-    car.color = "red";
+    new car.Sprite(random(25, 375), -50, 40, 70, "dynamic");
+    car.vel.y = vel;
 }
 
 function increaseDifficulty() {
     clearInterval(callSpawner);
     if (difficulty >= 500) difficulty += -50;
-    if (carSpeed <= 10) carSpeed += 0.05;
+    if (carSpeed <= 10) carSpeed += 0.1;
 
     callSpawner = setInterval(spawnCar, difficulty, carSpeed);
 }
