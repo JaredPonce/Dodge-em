@@ -23,17 +23,17 @@ function setup() {
     car = new Group();
     car.color = "red";
 
-    upButton = createButton("⬆️");
-    upButton.position(width / 4, height - height / 4);
-    upButton.mousePressed(function () {
-        player.position.y -= 20;
-    });
+    // upButton = createButton("⬇️");
+    // upButton.position(width / 5, height - height / 4);
+    // upButton.touchStarted(function () {
+    //     player.position.y += 2;
+    // });
 
-    downButton = createButton("⬇️");
-    downButton.position(width - width / 4, height - height / 4);
-    downButton.mousePressed(function () {
-        player.position.y += 20;
-    });
+    // downButton = createButton("⬆️");
+    // downButton.position(width - width / 5, height - height / 4);
+    // downButton.touchStarted(function () {
+    //     player.position.y -= 2;
+    // });
 
     callSpawner = setInterval(spawnCar, difficulty, carSpeed);
     refreshCaller = setInterval(increaseDifficulty, 1500);
@@ -44,8 +44,12 @@ function draw() {
         background(225);
 
         player.vel.x = x;
+        console.log(touches.length);
 
         if (player.collides(car)) gameOverScreen();
+
+        if (touches.x < width / 2) player.position.y += 10;
+        else if (touches.x > width / 2) player.position.y -= 10;
 
         player.position.x > width
             ? (player.position.x = width)
