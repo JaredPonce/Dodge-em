@@ -11,13 +11,13 @@ let DEAD = 0;
 let playerState = ALIVE;
 
 window.addEventListener("devicemotion", function (e) {
-    x = parseInt(e.accelerationIncludingGravity.x) * -2.5;
+    x = parseInt(e.accelerationIncludingGravity.x);
     y = parseInt(e.accelerationIncludingGravity.y);
     z = parseInt(e.accelerationIncludingGravity.z);
 });
 
 function setup() {
-    createCanvas(650, 1400);
+    createCanvas(windowWidth, windowHeight);
 
     player = new Sprite(width / 2, height / 2, 80, 150, "dynamic");
     player.color = "blue";
