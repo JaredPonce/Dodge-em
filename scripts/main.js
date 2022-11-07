@@ -2,7 +2,7 @@ let player, car;
 let callSpawner, refreshCaller;
 let difficulty = 1000,
     carSpeed = 4;
-let x, upButton, downButton;
+let x, y, z, upButton, downButton;
 
 // Pagina para generar sonidos bfxr.met
 
@@ -12,6 +12,8 @@ let playerState = ALIVE;
 
 window.addEventListener("devicemotion", function (e) {
     x = parseInt(e.accelerationIncludingGravity.x) * -2.5;
+    y = parseInt(e.accelerationIncludingGravity.x);
+    z = parseInt(e.accelerationIncludingGravity.x);
 });
 
 function setup() {
