@@ -34,6 +34,7 @@ function draw() {
         background(225);
 
         player.vel.x = x;
+        console.log(x);
         // console.log(touches.length);
 
         if (player.collides(car)) gameOverScreen();
