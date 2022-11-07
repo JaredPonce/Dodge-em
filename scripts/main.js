@@ -10,12 +10,6 @@ let ALIVE = 1;
 let DEAD = 0;
 let playerState = ALIVE;
 
-window.addEventListener("devicemotion", function (e) {
-    x = parseInt(e.accelerationIncludingGravity.x);
-    y = parseInt(e.accelerationIncludingGravity.y);
-    z = parseInt(e.accelerationIncludingGravity.z);
-});
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
@@ -27,6 +21,9 @@ function setup() {
 
     callSpawner = setInterval(spawnCar, difficulty, carSpeed);
     refreshCaller = setInterval(increaseDifficulty, 1500);
+
+    x = 0;
+    y = 0;
 }
 
 function draw() {
@@ -86,3 +83,9 @@ function gameOverScreen() {
     textAlign(CENTER);
     text("Game Over", width / 2, height / 2);
 }
+
+window.addEventListener("devicemotion", function (e) {
+    x = parseInt(e.accelerationIncludingGravity.x);
+    y = parseInt(e.accelerationIncludingGravity.y);
+    z = parseInt(e.accelerationIncludingGravity.z);
+});
