@@ -15,7 +15,7 @@ window.addEventListener("devicemotion", function (e) {
 });
 
 function setup() {
-    createCanvas(800, 2000);
+    createCanvas(800, 1000);
 
     player = new Sprite(width / 2, height / 2, 80, 150, "dynamic");
     player.color = "blue";
