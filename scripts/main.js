@@ -17,7 +17,7 @@ window.addEventListener("devicemotion", function (e) {
 function setup() {
     createCanvas(800, 2000);
 
-    player = new Sprite(width / 2, height / 1.5, 40, 70, "dynamic");
+    player = new Sprite(width / 2, height / 2, 100, 200, "dynamic");
     player.color = "blue";
 
     car = new Group();
@@ -57,7 +57,7 @@ function draw() {
 }
 
 function spawnCar(vel) {
-    new car.Sprite(random(25, 375), -50, 40, 70, "dynamic");
+    new car.Sprite(random(25, 375), -50, 100, 200, "dynamic");
     car.vel.y = vel;
 }
 
