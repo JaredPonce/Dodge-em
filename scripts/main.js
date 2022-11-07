@@ -12,8 +12,8 @@ let playerState = ALIVE;
 
 window.addEventListener("devicemotion", function (e) {
     x = parseInt(e.accelerationIncludingGravity.x) * -2.5;
-    y = parseInt(e.accelerationIncludingGravity.x);
-    z = parseInt(e.accelerationIncludingGravity.x);
+    y = parseInt(e.accelerationIncludingGravity.y);
+    z = parseInt(e.accelerationIncludingGravity.z);
 });
 
 function setup() {
