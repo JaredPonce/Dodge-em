@@ -3,6 +3,8 @@ let x = 0,
     y = 0,
     z = 0;
 
+let color = 100;
+
 let leftBorder, rightBorder;
 let shootButton;
 // let upButton, downButton;
@@ -23,11 +25,11 @@ function setup() {
     shootButton = createButton("shoot");
     shootButton.position(width / 2, height - height / 4);
     shootButton.size(200, 200);
+    shootButton.mousePressed(shoot);
+    background(color);
 }
 
 function draw() {
-    background(225);
-
     player.vel.x = x;
 
     if (touches.x <= width / 2) {
@@ -37,7 +39,10 @@ function draw() {
     }
 }
 
-function shoot() {}
+function shoot() {
+    color += 10;
+    background(color);
+}
 
 function gameOverScreen() {
     playerState = DEAD;
