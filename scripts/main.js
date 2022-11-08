@@ -18,8 +18,8 @@ function setup() {
     player = new Sprite(width / 2, height / 2, 50, 50, "dynamic");
     player.color = "white";
 
-    leftBorder = new Sprite(0, 0, 10, height, "static");
-    rightBorder = new Sprite(width, 0, 10, height, "static");
+    leftBorder = new Sprite(0, 0, 10, windowHeight, "static");
+    rightBorder = new Sprite(windowWidth, 0, 10, windowHeight, "static");
 }
 
 function draw() {
