@@ -3,12 +3,8 @@ let x = 0,
     y = 0,
     z = 0;
 
-let callSpawner, refreshCaller;
-
-let difficulty = 1000;
-let carSpeed = 4;
-
 let leftBorder, rightBorder;
+// let upButton, downButton;
 
 // let ALIVE = 1;
 // let DEAD = 0;
@@ -22,6 +18,11 @@ function setup() {
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
+
+    // upButton = createButton("");
+    // upButton.position(width / 3, height / 2);
+    // downButton = createButton("");
+    // downButton.position(width - width / 3, height / 2);
 }
 
 function draw() {
@@ -29,7 +30,12 @@ function draw() {
     background(225);
 
     player.vel.x = x;
-    player.vel.y = y;
+
+    if (touches.x <= width / 2) {
+        player.position.y -= 10;
+    } else if (touches.x >= width / 2) {
+        player.position.y += 10;
+    }
 
     console.log(x);
     // }
