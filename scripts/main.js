@@ -1,10 +1,12 @@
-let player, car;
-let callSpawner, refreshCaller;
-let difficulty = 1000,
-    carSpeed = 4;
-let x, y, z, upButton, downButton;
+let player;
+let x, y, z;
 
-// Pagina para generar sonidos bfxr.met
+let callSpawner, refreshCaller;
+
+let difficulty = 1000;
+let carSpeed = 4;
+
+let leftBorder, rightBorder;
 
 let ALIVE = 1;
 let DEAD = 0;
@@ -14,16 +16,10 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
 
     player = new Sprite(width / 2, height / 2, 80, 150, "dynamic");
-    player.color = "blue";
+    player.color = "white";
 
-    car = new Group();
-    car.color = "red";
-
-    callSpawner = setInterval(spawnCar, difficulty, carSpeed);
-    refreshCaller = setInterval(increaseDifficulty, 1500);
-
-    x = 0;
-    y = 0;
+    leftBorder = new Sprite(0, 0, 10, height, "static");
+    rightBorder = new Sprite(width, 0, 10, height, "static");
 }
 
 function draw() {
@@ -31,42 +27,10 @@ function draw() {
         background(225);
 
         player.vel.x = x;
+        player.vel.y = y;
+
         console.log(x);
-        // console.log(touches.length);
-
-        if (player.collides(car)) gameOverScreen();
-
-        // if (touches.x < width / 2) player.position.y += 10;
-        // else if (touches.x > width / 2) player.position.y -= 10;
-
-        player.position.x > width
-            ? (player.position.x = width)
-            : player.position.x < 0
-            ? (player.position.x = 0)
-            : (player.position.x = player.position.x);
-
-        player.position.y > height
-            ? (player.position.y = height)
-            : player.position.y < height / 1.5
-            ? (player.position.y = height / 1.5)
-            : (player.position.y = player.position.y);
     }
-
-    // else if (playerState == DEAD) {
-    // }
-}
-
-function spawnCar(vel) {
-    new car.Sprite(random(25, 375), -50, 80, 150, "dynamic");
-    car.vel.y = vel;
-}
-
-function increaseDifficulty() {
-    clearInterval(callSpawner);
-    if (difficulty >= 500) difficulty += -50;
-    if (carSpeed <= 10) carSpeed += 0.1;
-
-    callSpawner = setInterval(spawnCar, difficulty, carSpeed);
 }
 
 function gameOverScreen() {
@@ -85,7 +49,7 @@ function gameOverScreen() {
 }
 
 window.addEventListener("devicemotion", function (e) {
-    x = parseInt(e.accelerationIncludingGravity.x);
+    x = parseInt(e.accelerationIncludingGravity.x) * -2;
     y = parseInt(e.accelerationIncludingGravity.y);
     z = parseInt(e.accelerationIncludingGravity.z);
 });
