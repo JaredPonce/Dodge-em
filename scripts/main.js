@@ -15,7 +15,7 @@ let playerState = ALIVE;
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    player = new Sprite(width / 2, height / 2, 80, 150, "dynamic");
+    player = new Sprite(width / 2, height / 2, 50, 50, "dynamic");
     player.color = "white";
 
     leftBorder = new Sprite(0, 0, 10, height, "static");
