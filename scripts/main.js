@@ -4,6 +4,7 @@ let x = 0,
     z = 0;
 
 let leftBorder, rightBorder;
+let shootButton;
 // let upButton, downButton;
 
 // let ALIVE = 1;
@@ -19,14 +20,11 @@ function setup() {
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
 
-    // upButton = createButton("");
-    // upButton.position(width / 3, height / 2);
-    // downButton = createButton("");
-    // downButton.position(width - width / 3, height / 2);
+    shootButton = createButton("shoot");
+    shootButton.position(width / 2, height - height / 4);
 }
 
 function draw() {
-    // if (playerState == ALIVE) {
     background(225);
 
     player.vel.x = x;
@@ -36,18 +34,14 @@ function draw() {
     } else if (touches.x >= width / 2) {
         player.position.y += 10;
     }
-
-    console.log(x);
-    // }
 }
+
+function shoot() {}
 
 function gameOverScreen() {
     playerState = DEAD;
     background(0);
 
-    car.remove();
-    clearInterval(refreshCaller);
-    clearInterval(callSpawner);
     player.color = color(0, 0, 255, 20);
 
     textSize(50);
