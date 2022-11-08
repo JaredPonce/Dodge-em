@@ -10,29 +10,29 @@ let carSpeed = 4;
 
 let leftBorder, rightBorder;
 
-let ALIVE = 1;
-let DEAD = 0;
-let playerState = ALIVE;
+// let ALIVE = 1;
+// let DEAD = 0;
+// let playerState = ALIVE;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
     player = new Sprite(width / 2, height / 2, 50, 50, "dynamic");
-    player.color = "white";
+    player.color = "black";
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
 }
 
 function draw() {
-    if (playerState == ALIVE) {
-        background(225);
+    // if (playerState == ALIVE) {
+    background(225);
 
-        player.vel.x = x;
-        player.vel.y = y;
+    player.vel.x = x;
+    player.vel.y = y;
 
-        console.log(x);
-    }
+    console.log(x);
+    // }
 }
 
 function gameOverScreen() {
