@@ -22,6 +22,7 @@ function setup() {
 
     shootButton = createButton("shoot");
     shootButton.position(width / 2, height - height / 4);
+    shootButton.size(200, 200);
 }
 
 function draw() {
