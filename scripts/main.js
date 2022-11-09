@@ -21,7 +21,7 @@ function setup() {
     downBorder = new Sprite(width / 2, height, width, 50, "static");
 
     shootButton = createButton("shoot");
-    shootButton.position(width / 2, height - height / 4);
+    shootButton.position(width / 3, height - height / 4);
     shootButton.size(200, 200);
     shootButton.mousePressed(shoot);
 }
@@ -40,7 +40,7 @@ function draw() {
 }
 
 function shoot() {
-    new proyectile.Sprite(player.position.x, player.position.y - 100, 20);
+    new proyectile.Sprite(player.position.x, player.position.y - 100, 20, 20);
 }
 
 function gameOverScreen() {
@@ -68,6 +68,9 @@ window.addEventListener(
             console.log(`touchpoint[${i}].screenX = ${e.touches[i].screenX}`);
             console.log(`touchpoint[${i}].screenY = ${e.touches[i].screenY}`);
         }
+
+        if (e.touches[O].screenX > width / 2) player.position.y -= 10;
+        else if (e.touches[O].screenX < width / 2) player.position.y += 10;
     },
     false
 );
