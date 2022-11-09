@@ -13,8 +13,8 @@ function setup() {
     player.color = "black";
 
     proyectile = new Group();
-    proyectile.color = "red";
-    proyectile.vel.y = -20;
+    proyectile.color = "black";
+    proyectile.vel.y = -10;
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
@@ -30,13 +30,13 @@ function draw() {
     background(235);
     // player.vel.x = x;
 
-    if (kb.presses(" ")) shoot();
+    if (kb.pressing(" ")) shoot();
 
-    if (kb.presses("a")) player.position.x -= 4;
-    else if (kb.presses("d")) player.position.x += 4;
+    if (kb.pressing("a")) player.position.x -= 4;
+    else if (kb.pressing("d")) player.position.x += 4;
 
-    if (kb.presses("w")) player.position.y += 4;
-    else if (kb.presses("s")) player.position.y -= 4;
+    if (kb.pressing("w")) player.position.y -= 4;
+    else if (kb.pressing("s")) player.position.y += 4;
 }
 
 function shoot() {
