@@ -40,7 +40,7 @@ function draw() {
 }
 
 function shoot() {
-    new proyectile.Sprite(player.position.x, player.position.y - 50, 20);
+    new proyectile.Sprite(player.position.x, player.position.y - 100, 20);
 }
 
 function gameOverScreen() {
