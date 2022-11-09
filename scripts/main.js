@@ -65,8 +65,12 @@ window.addEventListener(
     "touchstart",
     (e) => {
         for (let i = 0; i < e.touches.length; i++) {
-            console.log(`touchpoint[${i}].screenX = ${e.touches[i].screenX}`);
-            console.log(`touchpoint[${i}].screenY = ${e.touches[i].screenY}`);
+            console.log(
+                `touchpoint[${i}].screenX = ${e.touches[i].screenX} anashe`
+            );
+            console.log(
+                `touchpoint[${i}].screenY = ${e.touches[i].screenY} anashe`
+            );
         }
 
         if (touchpoint[O].screenX > width / 2) player.position.y -= 10;
