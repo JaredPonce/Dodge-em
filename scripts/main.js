@@ -69,8 +69,8 @@ window.addEventListener(
             console.log(`touchpoint[${i}].screenY = ${e.touches[i].screenY}`);
         }
 
-        if (e.touches[O].screenX > width / 2) player.position.y -= 10;
-        else if (e.touches[O].screenX < width / 2) player.position.y += 10;
+        if (touchpoint[O].screenX > width / 2) player.position.y -= 10;
+        else if (touchpoint[O].screenX < width / 2) player.position.y += 10;
     },
     false
 );
