@@ -1,10 +1,10 @@
-let player;
+let player, vidas;
 let x = 0,
     y = 0,
     z = 0;
 
-let leftBorder, rightBorder;
-let shootButton;
+let leftBorder, rightBorder, downBorder;
+let shootButton, proyectile;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -12,8 +12,13 @@ function setup() {
     player = new Sprite(width / 2, height / 2, 50, 50, "dynamic");
     player.color = "black";
 
+    proyectile = new Group();
+    proyectile.color = "red";
+    proyectile.vel.y = 8;
+
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
+    downBorder = new Sprite(width / 2, height, 50, width, "static");
 
     shootButton = createButton("shoot");
     shootButton.position(width / 2, height - height / 4);
@@ -34,7 +39,9 @@ function draw() {
     else if (kb.presses("s")) player.position.y -= 4;
 }
 
-function shoot() {}
+function shoot() {
+    new proyectile.Sprite(player.position.x, player.position.y - 10, 20, 20);
+}
 
 function gameOverScreen() {
     playerState = DEAD;
@@ -53,9 +60,6 @@ function gameOverScreen() {
 //     y = parseInt(e.accelerationIncludingGravity.y);
 //     z = parseInt(e.accelerationIncludingGravity.z);
 // });
-
-// window.addEventListener("touchend")
-// Register a touchstart listeners for the 'source' element
 
 window.addEventListener(
     "touchstart",
