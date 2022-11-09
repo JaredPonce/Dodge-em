@@ -18,7 +18,7 @@ function setup() {
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
-    downBorder = new Sprite(width / 2, height, 50, width, "static");
+    downBorder = new Sprite(width / 2, height, width, 50, "static");
 
     shootButton = createButton("shoot");
     shootButton.position(width / 2, height - height / 4);
