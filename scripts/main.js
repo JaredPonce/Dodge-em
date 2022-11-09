@@ -14,7 +14,7 @@ function setup() {
 
     proyectile = new Group();
     proyectile.color = "red";
-    proyectile.vel.y = 8;
+    proyectile.vel.y = 20;
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
@@ -40,7 +40,7 @@ function draw() {
 }
 
 function shoot() {
-    new proyectile.Sprite(player.position.x, player.position.y - 10, 20);
+    new proyectile.Sprite(player.position.x, player.position.y - 50, 20);
 }
 
 function gameOverScreen() {
