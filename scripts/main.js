@@ -3,7 +3,6 @@ let x = 0,
     y = 0,
     z = 0;
 
-
 let leftBorder, rightBorder;
 let shootButton;
 
@@ -26,17 +25,16 @@ function draw() {
     background(235);
     // player.vel.x = x;
 
-    if (kb.presses(' ')) shoot();
+    if (kb.presses(" ")) shoot();
 
-    if (kb.presses('a')) player.position.x -= 4;
-    else if (kb.presses('d')) player.position.x += 4;
+    if (kb.presses("a")) player.position.x -= 4;
+    else if (kb.presses("d")) player.position.x += 4;
 
-    if (kb.presses('w')) player.position.y += 4;
-    else if (kb.presses('s')) player.position.y -= 4;
+    if (kb.presses("w")) player.position.y += 4;
+    else if (kb.presses("s")) player.position.y -= 4;
 }
 
-function shoot() {
-}
+function shoot() {}
 
 function gameOverScreen() {
     playerState = DEAD;
@@ -58,11 +56,14 @@ function gameOverScreen() {
 
 // window.addEventListener("touchend")
 // Register a touchstart listeners for the 'source' element
-const src = document.getElementById("source");
 
-src.addEventListener('touchstart', (e) => {
-  for (let i = 0; i < e.touches.length; i++) {
-    console.log(`touchpoint[${i}].screenX = ${e.touches[i].screenX}`);
-    console.log(`touchpoint[${i}].screenY = ${e.touches[i].screenY}`);
-  }
-}, false);
+window.addEventListener(
+    "touchstart",
+    (e) => {
+        for (let i = 0; i < e.touches.length; i++) {
+            console.log(`touchpoint[${i}].screenX = ${e.touches[i].screenX}`);
+            console.log(`touchpoint[${i}].screenY = ${e.touches[i].screenY}`);
+        }
+    },
+    false
+);
