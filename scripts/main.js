@@ -14,7 +14,7 @@ function setup() {
 
     proyectile = new Group();
     proyectile.color = "red";
-    proyectile.vel.y = 20;
+    proyectile.vel.y = -20;
 
     leftBorder = new Sprite(0, height / 2, 50, height, "static");
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
@@ -40,7 +40,7 @@ function draw() {
 }
 
 function shoot() {
-    new proyectile.Sprite(player.position.x, player.position.y - 100, 20, 20);
+    new proyectile.Sprite(player.position.x, player.position.y - 50, 20, 20);
 }
 
 function gameOverScreen() {
@@ -66,15 +66,12 @@ window.addEventListener(
     (e) => {
         for (let i = 0; i < e.touches.length; i++) {
             console.log(
-                `touchpoint[${i}].screenX = ${e.touches[i].screenX} anashe`
-            );
-            console.log(
-                `touchpoint[${i}].screenY = ${e.touches[i].screenY} anashe`
+                `touchpoint[${i}].screenX = ${e.touches[i].screenX} apa`
             );
         }
 
-        if (touchpoint[O].screenX > width / 2) player.position.y -= 10;
-        else if (touchpoint[O].screenX < width / 2) player.position.y += 10;
+        if (e.touches[O].screenX > width / 2) player.position.y -= 10;
+        else if (e.touches[O].screenX < width / 2) player.position.y += 10;
     },
     false
 );
