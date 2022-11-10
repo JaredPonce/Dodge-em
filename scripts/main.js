@@ -20,10 +20,10 @@ function setup() {
     rightBorder = new Sprite(width, height / 2, 50, height, "static");
     downBorder = new Sprite(width / 2, height, width, 50, "static");
 
-    shootButton = createButton("shoot");
-    shootButton.position(width / 3, height - height / 4);
-    shootButton.size(200, 200);
-    shootButton.mousePressed(shoot);
+    // shootButton = createButton("shoot");
+    // shootButton.position(width / 3, height - height / 4);
+    // shootButton.size(200, 200);
+    // shootButton.mousePressed(shoot);
     // shootButton.color = color('rgba(255, 255, 255, 50)');
 }
 
