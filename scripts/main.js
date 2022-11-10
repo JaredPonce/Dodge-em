@@ -30,6 +30,7 @@ function setup() {
 function draw() {
     background(235);
     // player.vel.x = x;
+    // player.vel.y = y;
 
     if (kb.presses(" ")) shoot();
 
@@ -62,17 +63,17 @@ function gameOverScreen() {
 //     z = parseInt(e.accelerationIncludingGravity.z);
 // });
 
-window.addEventListener(
-    "touchstart",
-    (e) => {
-        for (let i = 0; i < e.touches.length; i++) {
-            console.log(
-                `touchpoint[${i}].screenX = ${e.touches[i].screenX} apa`
-            );
-        }
-
-        if (e.touches[O].screenX > width / 2) player.position.y -= 10;
-        else if (e.touches[O].screenX < width / 2) player.position.y += 10;
-    },
-    false
-);
+// window.addEventListener(
+//     "touchstart",
+//     (e) => {
+//         for (let i = 0; i < e.touches.length; i++) {
+//             console.log(
+//                 `touchpoint[${i}].screenX = ${e.touches[i].screenX} apa`
+//             );
+//         }
+//
+//         if (e.touches[O].screenX > width / 2) player.position.y -= 10;
+//         else if (e.touches[O].screenX < width / 2) player.position.y += 10;
+//     },
+//     false
+// );
