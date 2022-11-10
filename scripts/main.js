@@ -1,3 +1,4 @@
+// TODO: hacer los límites de movimiento del player
 let player, vidas;
 let x = 0,
     y = 0,
