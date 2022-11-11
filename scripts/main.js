@@ -26,6 +26,7 @@ function setup() {
     // shootButton.size(200, 200);
     // shootButton.mousePressed(shoot);
     // shootButton.color = color('rgba(255, 255, 255, 50)');
+    console.log("a");
 }
 
 function draw() {
