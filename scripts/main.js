@@ -1,5 +1,5 @@
 // TODO: hacer los límites de movimiento del player
-let player, vidas;
+let player;
 let x = 0,
     y = 0,
     z = 0;
@@ -26,8 +26,6 @@ function setup() {
     // shootButton.size(200, 200);
     // shootButton.mousePressed(shoot);
     // shootButton.color = color('rgba(255, 255, 255, 50)');
-    
-    if (player.positon.y >= height / 2) player.positon.y = height / 2;
 }
 
 function draw() {
@@ -42,6 +40,8 @@ function draw() {
 
     if (kb.pressing("w")) player.position.y -= 4;
     else if (kb.pressing("s")) player.position.y += 4;
+
+    if (player.positon.y >= height / 2) player.positon.y = height / 2;
 }
 
 function shoot() {
