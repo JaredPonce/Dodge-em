@@ -10,7 +10,7 @@ let shootButton, proyectile;
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    player = new Sprite(width / 2, height / 2, 50, 50, "dynamic");
+    player = new Sprite(width / 2, height / 2 + 10, 50, 50, "dynamic");
     player.color = "black";
 
     proyectile = new Group();
@@ -42,7 +42,7 @@ function draw() {
     if (kb.pressing("w")) player.position.y -= 4;
     else if (kb.pressing("s")) player.position.y += 4;
 
-    if (player.position.y >= height / 2) player.position.y = height / 2;
+    if (player.position.y <= height / 2) player.position.y = height / 2;
 }
 
 function shoot() {
