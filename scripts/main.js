@@ -27,7 +27,7 @@ function setup() {
     // shootButton.mousePressed(shoot);
     // shootButton.color = color('rgba(255, 255, 255, 50)');
     
-    if (player.positon.y >= height / 2) player.positon.y == height / 2;
+    if (player.positon.y >= height / 2) player.positon.y = height / 2;
 }
 
 function draw() {
