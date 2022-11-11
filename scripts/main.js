@@ -42,7 +42,7 @@ function draw() {
     if (kb.pressing("w")) player.position.y -= 4;
     else if (kb.pressing("s")) player.position.y += 4;
 
-    if (player.positon.y >= height / 2) player.positon.y = height / 2;
+    if (player.position.y >= height / 2) player.position.y = height / 2;
 }
 
 function shoot() {
