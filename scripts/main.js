@@ -35,7 +35,7 @@ function draw() {
 
     if (kb.presses(" ")) shoot();
 
-    if (kb.pressing("a", "A")) player.position.x -= 4;
+    if (kb.pressing("a")) player.position.x -= 4;
     else if (kb.pressing("d")) player.position.x += 4;
 
     if (kb.pressing("w")) player.position.y -= 4;
